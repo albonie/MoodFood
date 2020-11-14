@@ -10,11 +10,6 @@
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
         <activity
-                android:name=".cipa"
-                android:label="@string/title_activity_cipa"
-                android:theme="@style/AppTheme.NoActionBar">
-        </activity>
-        <activity
                 android:name=".eoooo"
                 android:label="@string/title_activity_eoooo"
                 android:theme="@style/AppTheme.NoActionBar">
