@@ -1,0 +1,10 @@
+
+<resources>
+    <string name="debil">Kamil</string>
+
+    <string name="add">ADD</string>
+    <string name="przep">PRZEPISY</string>
+    <string name="delete">DELETE</string>
+    <string name="przepisy">przepisy</string>
+
+</resources>
