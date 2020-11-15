@@ -12,6 +12,9 @@
         <activity android:name=".Przepisy">
 
         </activity>
+        <activity android:name=".WyborProgramu">
+
+        </activity>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
