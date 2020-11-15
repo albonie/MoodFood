@@ -13,7 +13,7 @@
     <TextView
             android:text="@string/przepisy"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="80dp"
             android:padding="24dp"
             android:id="@+id/PrzepisTekst"
             android:fontFamily="@font/coiny"
@@ -21,7 +21,19 @@
             android:textAlignment="center"
             android:background="#32e0c4"
             android:backgroundTint="#32e0c4"
-            android:textColor="#FFFFFF"/>
+            android:textColor="#FFFFFF"
+            android:textSize="18sp"/>
+
+    <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center">
+
+        <ListView
+                android:layout_width="match_parent"
+                android:layout_height="600dp"/>
+    </LinearLayout>
 
     <LinearLayout
             android:orientation="horizontal"

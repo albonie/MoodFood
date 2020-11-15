@@ -10,11 +10,11 @@ class Przepisy : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_przepisy)
         BADD.setOnClickListener {
-            val message = Toast.makeText(applicationContext,"Dodano!",Toast.LENGTH_LONG)
+            val message = Toast.makeText(applicationContext,"Dodano!",Toast.LENGTH_SHORT)
             message.show()
         }
         BDELETE.setOnClickListener {
-            val message2 = Toast.makeText(applicationContext,"Usunięto!",Toast.LENGTH_LONG)
+            val message2 = Toast.makeText(applicationContext,"Usunięto!",Toast.LENGTH_SHORT)
             message2.show()
         }
     }
