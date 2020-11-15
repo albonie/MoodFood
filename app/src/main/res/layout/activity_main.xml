@@ -7,7 +7,7 @@
         android:layout_height="match_parent"
         tools:context=".MainActivity">
     <Button
-            android:text="Button"
+            android:text="@string/przepisy"
             android:layout_width="140dp"
             android:layout_height="140dp" android:id="@+id/buttonPrzepis"
             app:layout_constraintTop_toTopOf="parent" app:layout_constraintStart_toStartOf="parent"
@@ -15,7 +15,7 @@
             app:layout_constraintHorizontal_bias="0.82" app:layout_constraintVertical_bias="0.449"
             android:layout_marginEnd="12dp"/>
     <Button
-            android:text="Button"
+            android:text="@string/wybor_programu"
             android:layout_width="140dp"
             android:layout_height="140dp" android:id="@+id/buttonProgram"
             app:layout_constraintTop_toTopOf="parent" app:layout_constraintEnd_toEndOf="parent"
@@ -23,7 +23,7 @@
             app:layout_constraintHorizontal_bias="0.2" app:layout_constraintVertical_bias="0.449"
             android:layout_marginStart="12dp"/>
     <Button
-            android:text="Button"
+            android:text="@string/o_aplikacji"
             android:layout_width="140dp"
             android:layout_height="140dp" android:id="@+id/buttonOpcje"
             app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
@@ -31,7 +31,7 @@
             app:layout_constraintHorizontal_bias="0.822" app:layout_constraintVertical_bias="0.727"
             android:layout_marginEnd="12dp" android:layout_marginTop="70dp"/>
     <Button
-            android:text="Button"
+            android:text="@string/opcje"
             android:layout_width="140dp"
             android:layout_height="140dp" android:id="@+id/buttonInfo"
             app:layout_constraintEnd_toEndOf="parent" app:layout_constraintTop_toTopOf="parent"
