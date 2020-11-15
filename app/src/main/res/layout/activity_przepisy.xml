@@ -16,11 +16,12 @@
             android:layout_height="wrap_content"
             android:padding="24dp"
             android:id="@+id/PrzepisTekst"
-            android:fontFamily="sans-serif-smallcaps"
+            android:fontFamily="@font/coiny"
             android:gravity="center"
             android:textAlignment="center"
             android:background="#32e0c4"
-            android:backgroundTint="#32e0c4"/>
+            android:backgroundTint="#32e0c4"
+            android:textColor="#FFFFFF"/>
 
     <LinearLayout
             android:orientation="horizontal"
@@ -37,7 +38,9 @@
                 android:id="@+id/BADD"
                 android:layout_weight="1"
                 style="@android:style/Widget.Button"
-                android:backgroundTint="#0d7377"/>
+                android:backgroundTint="#0d7377"
+                android:textColor="#FFFFFF"
+                android:fontFamily="@font/coiny"/>
 
         <Button
                 android:text="@string/delete"
@@ -46,7 +49,9 @@
                 android:id="@+id/BDELETE"
                 android:layout_weight="1"
                 style="@android:style/Widget.Button"
-                android:backgroundTint="#0d7377"/>
+                android:backgroundTint="#0d7377"
+                android:textColor="#FFFFFF"
+                android:fontFamily="@font/coiny"/>
 
     </LinearLayout>
 
