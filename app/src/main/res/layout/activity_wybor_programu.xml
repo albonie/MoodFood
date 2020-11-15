@@ -8,7 +8,7 @@
         tools:context=".WyborProgramu">
 
     <Button
-            android:text="Button"
+            android:text="@string/lod_wka"
             android:layout_width="262dp"
             android:layout_height="89dp" android:id="@+id/lodowka"
             app:layout_constraintTop_toTopOf="parent"
@@ -16,7 +16,7 @@
             app:layout_constraintEnd_toEndOf="parent" app:layout_constraintHorizontal_bias="0.496"
             app:layout_constraintVertical_bias="0.274"/>
     <Button
-            android:text="Button"
+            android:text="@string/chrapka"
             android:layout_width="262dp"
             android:layout_height="89dp" android:id="@+id/chrapka"
             app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toEndOf="parent"

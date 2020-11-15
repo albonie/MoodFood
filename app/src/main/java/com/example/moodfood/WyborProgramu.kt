@@ -8,7 +8,5 @@ class WyborProgramu : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_wybor_programu)
-        lodowka.text = "Lodówka"
-        chrapka.text = "Chrapka"
     }
 }
