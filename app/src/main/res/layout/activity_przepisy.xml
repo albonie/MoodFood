@@ -1,8 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+<LinearLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".Przepisy"/>
+        android:orientation="vertical"
+        android:gravity="center"
+        android:id="@+id/LayoutPV"
+        android:background="#eeeeee "
+        android:backgroundTint="#eeeeee ">
+
+
+    <TextView
+            android:text="@string/przep"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="24dp"
+            android:id="@+id/PrzepisTekst"
+            android:fontFamily="sans-serif-smallcaps"
+            android:gravity="center"
+            android:textAlignment="center"
+            android:background="#32e0c4"
+            android:backgroundTint="#32e0c4"/>
+
+    <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/LayoutPH"
+            android:background="#eeeeee "
+            android:gravity="bottom">
+
+        <Button
+                android:text="@string/add"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/BADD"
+                android:layout_weight="1"
+                style="@android:style/Widget.Button"
+                android:backgroundTint="#0d7377"/>
+
+        <Button
+                android:text="@string/delete"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/BDELETE"
+                android:layout_weight="1"
+                style="@android:style/Widget.Button"
+                android:backgroundTint="#0d7377"/>
+    </LinearLayout>
+
+</LinearLayout>
