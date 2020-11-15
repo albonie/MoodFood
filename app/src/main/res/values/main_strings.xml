@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="przepisy">Przepisy</string>
+    <string name="wybor_programu">Wybor programu</string>
+    <string name="o_aplikacji">O aplikacji</string>
+    <string name="opcje">Opcje</string>
+</resources>
