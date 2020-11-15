@@ -11,7 +11,7 @@
 
 
     <TextView
-            android:text="@string/debil"
+            android:text="@string/przepisy"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="24dp"
@@ -47,6 +47,7 @@
                 android:layout_weight="1"
                 style="@android:style/Widget.Button"
                 android:backgroundTint="#0d7377"/>
+
     </LinearLayout>
 
 </LinearLayout>

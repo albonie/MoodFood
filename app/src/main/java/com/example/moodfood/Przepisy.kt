@@ -13,5 +13,9 @@ class Przepisy : AppCompatActivity() {
             val message = Toast.makeText(applicationContext,"Dodano!",Toast.LENGTH_LONG)
             message.show()
         }
+        BDELETE.setOnClickListener {
+            val message2 = Toast.makeText(applicationContext,"Dodano!",Toast.LENGTH_LONG)
+            message2.show()
+        }
     }
 }
