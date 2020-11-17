@@ -15,14 +15,19 @@
                 android:text="@string/lod_wka"
                 android:layout_width="262dp"
                 android:layout_height="89dp" android:id="@+id/lodowka"
-                android:background="#0d7377" android:textColor="#FFFFFF"
+                android:textColor="#FFFFFF"
                 android:fontFamily="@font/coiny"
-                android:layout_marginBottom="20dp"/>
+                android:layout_marginBottom="20dp"
+                android:background="@drawable/rounded_corners"/>
+
         <Button
                 android:text="@string/chrapka"
                 android:layout_width="262dp"
                 android:layout_height="89dp" android:id="@+id/chrapka"
-                android:background="#0d7377" android:textColor="#FFFFFF" android:fontFamily="@font/coiny"/>
+                android:textColor="#FFFFFF" android:fontFamily="@font/coiny"
+                android:background="@drawable/rounded_corners"
+        />
+
     </LinearLayout>
     <TextView
             android:text="@string/wyb_r_programu"
