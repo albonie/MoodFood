@@ -10,7 +10,8 @@
     <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" android:gravity="center">
+            android:layout_height="match_parent" android:gravity="center" tools:layout_editor_absoluteY="121dp"
+            tools:layout_editor_absoluteX="-16dp">
         <Button
                 android:text="@string/lod_wka"
                 android:layout_width="262dp"
