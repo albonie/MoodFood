@@ -7,23 +7,23 @@
         android:layout_height="match_parent"
         tools:context=".WyborProgramu" android:background="#EEEEEE">
 
-    <Button
-            android:text="@string/lod_wka"
-            android:layout_width="262dp"
-            android:layout_height="89dp" android:id="@+id/lodowka"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintHorizontal_bias="0.496"
-            app:layout_constraintVertical_bias="0.274" android:background="#0d7377" android:textColor="#FFFFFF"
-            android:fontFamily="@font/coiny"/>
-    <Button
-            android:text="@string/chrapka"
-            android:layout_width="262dp"
-            android:layout_height="89dp" android:id="@+id/chrapka"
-            app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintHorizontal_bias="0.496" app:layout_constraintVertical_bias="0.646"
-            android:background="#0d7377" android:textColor="#FFFFFF" android:fontFamily="@font/coiny"/>
+    <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" android:gravity="center">
+        <Button
+                android:text="@string/lod_wka"
+                android:layout_width="262dp"
+                android:layout_height="89dp" android:id="@+id/lodowka"
+                android:background="#0d7377" android:textColor="#FFFFFF"
+                android:fontFamily="@font/coiny"
+                android:layout_marginBottom="20sp"/>
+        <Button
+                android:text="@string/chrapka"
+                android:layout_width="262dp"
+                android:layout_height="89dp" android:id="@+id/chrapka"
+                android:background="#0d7377" android:textColor="#FFFFFF" android:fontFamily="@font/coiny"/>
+    </LinearLayout>
     <TextView
             android:text="@string/wyb_r_programu"
             android:layout_height="80dp" android:id="@+id/wp"
@@ -31,7 +31,7 @@
             app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent" app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintVertical_bias="0.0" android:layout_width="0dp"
-            android:gravity="center" android:textColor="#FFFFFF" android:background="#32e0c4"
+            android:textColor="#FFFFFF" android:background="#32e0c4"
             android:backgroundTint="#32e0c4" android:textSize="24sp" android:textStyle="bold"
-            android:fontFamily="@font/coiny"/>
+            android:fontFamily="@font/coiny" android:textAlignment="center"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
