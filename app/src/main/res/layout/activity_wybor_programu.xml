@@ -17,7 +17,7 @@
                 android:layout_height="89dp" android:id="@+id/lodowka"
                 android:background="#0d7377" android:textColor="#FFFFFF"
                 android:fontFamily="@font/coiny"
-                android:layout_marginBottom="20sp"/>
+                android:layout_marginBottom="20dp"/>
         <Button
                 android:text="@string/chrapka"
                 android:layout_width="262dp"
