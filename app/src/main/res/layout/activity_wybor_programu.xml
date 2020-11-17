@@ -33,5 +33,5 @@
             app:layout_constraintVertical_bias="0.0" android:layout_width="0dp"
             android:textColor="#FFFFFF" android:background="#32e0c4"
             android:backgroundTint="#32e0c4" android:textSize="24sp" android:textStyle="bold"
-            android:fontFamily="@font/coiny" android:textAlignment="center"/>
+            android:fontFamily="@font/coiny" android:textAlignment="center" android:paddingTop="12dp"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
