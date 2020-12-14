@@ -2,10 +2,10 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
       xmlns:app="http://schemas.android.com/apk/res-auto">
 
-<item android:title="Settings"
+<item android:title="@string/Ustawienia"
       app:showAsAction="never"
       android:id="@+id/settings_action"/>
-        <item android:title="O aplikacji"
+        <item android:title="@string/o_aplikacji"
               app:showAsAction="never"
               android:id="@+id/info_action"/>
         </menu>

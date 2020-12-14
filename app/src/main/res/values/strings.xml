@@ -116,5 +116,7 @@
     <string name="attachment_summary_on">Automatically download attachments for incoming emails</string>
     <string name="attachment_summary_off">Only download attachments when manually requested</string>
     <string name="title_activity_ustawienia">Ustawienia</string>
+    <string name="Ustawienia">Ustawienia</string>
+    <string name="o_aplikacji">O aplikacji</string>
 
 </resources>
