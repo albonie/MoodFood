@@ -17,6 +17,12 @@ class Przepisy : AppCompatActivity() {
             val message2 = Toast.makeText(applicationContext,"Usunięto!",Toast.LENGTH_SHORT)
             message2.show()
         }
+        val actionbar = supportActionBar
+        actionbar!!.title = "Przepisy"
+        actionbar.setDisplayHomeAsUpEnabled(true)
     }
-
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return true
+    }
 }
