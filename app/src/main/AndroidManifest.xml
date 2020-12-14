@@ -9,10 +9,11 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme.NoActionBar">
+        <activity android:name=".Opcyje">
+        </activity>
         <activity android:name=".Przepisy">
         </activity>
         <activity android:name=".WyborProgramu">
-
         </activity>
         <activity android:name=".MainActivity">
             <intent-filter>

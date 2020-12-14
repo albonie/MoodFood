@@ -27,5 +27,9 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this, WyborProgramu::class.java)
             startActivity(intent)
         }
+        buttonOpcje.setOnClickListener {
+            val intent = Intent(this, Opcyje::class.java)
+            startActivity(intent)
+        }
     }
 }
