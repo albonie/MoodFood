@@ -18,4 +18,5 @@ class Przepisy : AppCompatActivity() {
             message2.show()
         }
     }
+
 }

@@ -14,4 +14,5 @@ class WyborProgramu : AppCompatActivity() {
         lodowka.startAnimation(wjazd)
         chrapka.startAnimation(wjazdZLewej)
     }
+
 }
