@@ -17,10 +17,8 @@ class MainActivity : AppCompatActivity() {
         val wjazd2 = AnimationUtils.loadAnimation(this, R.anim.wjazd2)
         val wjazdZLewej = AnimationUtils.loadAnimation(this, R.anim.wjazd_z_lewej)
         val wjazdZLewej2 = AnimationUtils.loadAnimation(this, R.anim.wjazd_z_lewej2)
-        buttonOpcje.startAnimation(wjazd)
         buttonProgram.startAnimation(wjazd2)
         buttonPrzepis.startAnimation(wjazdZLewej)
-        buttonInfo.startAnimation(wjazdZLewej2)
         buttonPrzepis.setOnClickListener{
             val intent = Intent(this, Przepisy::class.java)
             startActivity(intent)
@@ -29,10 +27,7 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this, WyborProgramu::class.java)
             startActivity(intent)
         }
-        buttonOpcje.setOnClickListener {
-            val intent = Intent(this, Opcyje::class.java)
-            startActivity(intent)
-        }
+
     }
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.main_menu,menu)
@@ -42,7 +37,8 @@ class MainActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         val id = item.itemId
         if (id == R.id.settings_action) {
-            Toast.makeText(this, "opcje", Toast.LENGTH_SHORT).show()
+                val intent = Intent(this, Opcyje::class.java)
+                startActivity(intent)
             return true
         }
         if (id == R.id.info_action) {
