@@ -10,20 +10,6 @@
         android:backgroundTint="#eeeeee ">
 
 
-    <TextView
-            android:text="@string/przepisy"
-            android:layout_width="match_parent"
-            android:layout_height="80dp"
-            android:padding="24dp"
-            android:id="@+id/PrzepisTekst"
-            android:fontFamily="@font/coiny"
-            android:gravity="center"
-            android:textAlignment="center"
-            android:background="#32e0c4"
-            android:backgroundTint="#32e0c4"
-            android:textColor="#FFFFFF"
-            android:textSize="18sp"/>
-
     <LinearLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"
@@ -40,6 +26,7 @@
                 android:layout_weight="1"
                 style="@android:style/Widget.Button"
                 android:backgroundTint="#0d7377"
+
                 android:textColor="#FFFFFF"
                 android:fontFamily="@font/coiny"/>
 

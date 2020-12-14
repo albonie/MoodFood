@@ -11,12 +11,7 @@
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
-        <TextView
-                android:text="@string/opcje"
-                android:layout_width="match_parent"
-                android:layout_height="80dp" android:id="@+id/head_opcje" android:background="@color/colorDrugi"
-                android:textColor="#FFFFFF" android:textSize="18sp" android:gravity="center"
-                android:fontFamily="@font/coiny"/>
+
         <Switch
                 android:text="@string/d_wi_k"
                 android:layout_width="match_parent"
