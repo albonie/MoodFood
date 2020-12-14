@@ -42,7 +42,8 @@ class MainActivity : AppCompatActivity() {
             return true
         }
         if (id == R.id.info_action) {
-            Toast.makeText(this, "o aplikacji", Toast.LENGTH_SHORT).show()
+            val intent = Intent(this, oAplikacji::class.java)
+            startActivity(intent)
             return true
         }
         return super.onOptionsItemSelected(item)

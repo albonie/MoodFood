@@ -16,6 +16,6 @@
                 android:text="@string/d_wi_k"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" android:id="@+id/sw_dzwiek"
-                android:fontFamily="@font/cairo_extralight"/>
+        />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
