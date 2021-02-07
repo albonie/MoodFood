@@ -16,13 +16,14 @@
                 android:orientation="horizontal"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" android:gravity="center|top"
-                android:layout_marginBottom="30dp">
+                android:layout_marginBottom="30dp" tools:ignore="ExtraText">
             <Button
                     android:text="@string/przepisy"
                     android:layout_width="140dp"
                     android:layout_height="140dp" android:id="@+id/buttonPrzepis"
                     android:background="@drawable/rounded_corners"
-                    android:fontFamily="@font/coiny"
+                    android:fontFamily="@font/cairo_regular"
+                    android:textFontWeight="1000"
                     android:textColor="#ffffff"
                     android:layout_marginEnd="12dp" style="@android:style/Widget.Button"/>
             <Button
@@ -30,7 +31,8 @@
                     android:layout_width="140dp"
                     android:layout_height="140dp" android:id="@+id/buttonProgram"
                     android:background="@drawable/rounded_corners"
-                    android:fontFamily="@font/coiny"
+                    android:fontFamily="@font/cairo_regular"
+                    android:textFontWeight="1000"
                     android:textColor="#ffffff"
                     android:layout_marginStart="12dp" style="@android:style/Widget.Button"/>
         </LinearLayout>

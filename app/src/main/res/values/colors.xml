@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="colorPrimary">#32e0c4</color>
-    <color name="colorPrimaryDark">#434343</color>
+    <color name="colorPrimaryDark">#20FFFFFF</color>
     <color name="colorAccent">#0d7377</color>
     <color name="colorDrugi">#eeeeee</color>
+    <color name="przycisk">#20FFFFFF</color>
+    <color name="color_primary">#212121</color>
+    <color name="color_primary_dark">@android:color/black</color>
+    <color name="color_accent">#4285F4</color>
+    <color name="semi_transparent">#50000000</color>
 </resources>
