@@ -6,8 +6,7 @@
         android:orientation="vertical"
         android:gravity="center"
         android:id="@+id/LayoutPV"
-        android:background="#eeeeee "
-        android:backgroundTint="#eeeeee ">
+        >
 
 
     <LinearLayout
@@ -15,7 +14,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:id="@+id/LayoutPH"
-            android:background="#eeeeee "
+            android:background="@drawable/app_bg"
             android:gravity="bottom">
 
         <Button
