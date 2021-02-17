@@ -24,11 +24,9 @@
                 android:id="@+id/BADD"
                 android:layout_weight="1"
                 style="@android:style/Widget.Button"
-                android:backgroundTint="#0d7377"
 
                 android:textColor="#FFFFFF"
-                android:fontFamily="@font/coiny"/>
-
+                android:fontFamily="@font/coiny" android:background="@drawable/rounded_corners"/>
         <Button
                 android:text="@string/delete"
                 android:layout_width="wrap_content"
@@ -36,9 +34,8 @@
                 android:id="@+id/BDELETE"
                 android:layout_weight="1"
                 style="@android:style/Widget.Button"
-                android:backgroundTint="#0d7377"
                 android:textColor="#FFFFFF"
-                android:fontFamily="@font/coiny"/>
+                android:fontFamily="@font/coiny" android:background="@drawable/rounded_corners"/>
 
     </LinearLayout>
 
