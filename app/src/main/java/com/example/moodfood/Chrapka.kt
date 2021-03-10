@@ -32,8 +32,9 @@ class Chrapka : AppCompatActivity() {
 
             MainScope().launch {
                 withContext(Dispatchers.Default) {
-                    val adres = "jdbc:mysql://10.0.2.2/moodfood"
+                    val adres = "jdbc:mysql://10.0.2.2/moodfood?useUnicode=yes&characterEncoding=UTF-8"
                     val dane = "root"
+
                     try {
                         Class.forName("com.mysql.jdbc.Driver")
                         val con = DriverManager.getConnection(adres, dane, dane)
