@@ -17,15 +17,21 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         val wjazd2 = AnimationUtils.loadAnimation(this, R.anim.wjazd2)
         val wjazdZLewej = AnimationUtils.loadAnimation(this, R.anim.wjazd_z_lewej)
-        buttonProgram.startAnimation(wjazd2)
+        chrapka.startAnimation(wjazd2)
+        lodowka.startAnimation(wjazd2)
         buttonPrzepis.startAnimation(wjazdZLewej)
-        buttonPrzepis.setOnClickListener{
 
+        buttonPrzepis.setOnClickListener{
             val intent = Intent(this, Przepisy::class.java)
             startActivity(intent)
         }
-        buttonProgram.setOnClickListener {
-            val intent = Intent(this, WyborProgramu::class.java)
+        chrapka.setOnClickListener {
+            val intent = Intent(this, Chrapka::class.java)
+            startActivity(intent)
+        }
+
+        lodowka.setOnClickListener {
+            val intent = Intent(this, Lodowka::class.java)
             startActivity(intent)
         }
 

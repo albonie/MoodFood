@@ -13,28 +13,37 @@
             android:layout_height="match_parent" android:gravity="center" tools:layout_editor_absoluteY="0dp"
             tools:layout_editor_absoluteX="0dp">
         <LinearLayout
-                android:orientation="horizontal"
+                android:orientation="vertical"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" android:gravity="center|top"
                 android:layout_marginBottom="30dp" tools:ignore="ExtraText">
             <Button
-                    android:text="@string/przepisy"
-                    android:layout_width="140dp"
-                    android:layout_height="140dp" android:id="@+id/buttonPrzepis"
+                    android:text="@string/chrapka"
+                    android:layout_width="262dp"
+                    android:layout_height="89dp" android:id="@+id/chrapka"
+                    android:textColor="#FFFFFF" android:fontFamily="@font/cairo_regular"
                     android:background="@drawable/rounded_corners"
-                    android:fontFamily="@font/cairo_regular"
+                    android:layout_marginBottom="10dp"
                     android:textFontWeight="1000"
-                    android:textColor="#ffffff"
-                    android:layout_marginEnd="12dp" style="@android:style/Widget.Button"/>
+                    android:layout_weight="1"/>
             <Button
-                    android:text="@string/wybor_programu"
-                    android:layout_width="140dp"
-                    android:layout_height="140dp" android:id="@+id/buttonProgram"
+                    android:text="@string/lod_wka"
+                    android:layout_width="262dp"
+                    android:layout_height="89dp" android:id="@+id/lodowka"
+                    android:textColor="#FFFFFF"
+                    android:fontFamily="@font/cairo_regular"
+                    android:layout_marginBottom="10dp"
+                    android:textFontWeight="1000"
+                    android:background="@drawable/rounded_corners" android:layout_weight="1"/>
+            <Button
+                    android:text="@string/przepisy"
+                    android:layout_width="262dp"
+                    android:layout_height="89dp" android:id="@+id/buttonPrzepis"
                     android:background="@drawable/rounded_corners"
                     android:fontFamily="@font/cairo_regular"
                     android:textFontWeight="1000"
                     android:textColor="#ffffff"
-                    android:layout_marginStart="12dp" style="@android:style/Widget.Button"/>
+                    style="@android:style/Widget.Button"/>
         </LinearLayout>
         <LinearLayout
                 android:orientation="horizontal"
