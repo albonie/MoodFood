@@ -17,7 +17,6 @@ class Chrapka : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_chrapka)
-        title = "KotlinApp"
         listView = findViewById<View>(R.id.listView) as ListView
         dataModel = ArrayList<DataModel>()
         dataModel!!.add(DataModel("Apple Pie", false))
