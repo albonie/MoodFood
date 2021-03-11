@@ -1,14 +1,18 @@
 package com.example.moodfood
 
 
+import android.app.Activity
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
+import android.service.voice.VoiceInteractionSession
+import android.text.Editable
+import android.text.TextWatcher
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ListView
 import com.example.moodfood.chrapka.CustomAdapter
 import com.example.moodfood.chrapka.DataModel
+import kotlinx.android.synthetic.main.activity_chrapka.*
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.launch
@@ -26,37 +30,57 @@ class Chrapka : AppCompatActivity() {
         setContentView(R.layout.activity_chrapka)
 
 
+            skladnikInput.addTextChangedListener(object: TextWatcher {
+                override fun onTextChanged(s:CharSequence, start:Int, before:Int,
+                                           count:Int) {
+                    listView = findViewById<View>(R.id.listView) as ListView
+                    dataModel = ArrayList<DataModel>()
+                    MainScope().launch {
+                        withContext(Dispatchers.Default) {
+                            val adres = "jdbc:mysql://10.0.2.2/moodfood?useUnicode=yes&characterEncoding=UTF-8"
+                            val dane = "root"
 
-                listView = findViewById<View>(R.id.listView) as ListView
-                dataModel = ArrayList<DataModel>()
+                            var komenda = "select nazwa from skladniki"
 
-            MainScope().launch {
-                withContext(Dispatchers.Default) {
-                    val adres = "jdbc:mysql://10.0.2.2/moodfood?useUnicode=yes&characterEncoding=UTF-8"
-                    val dane = "root"
+                            try {
+                                Class.forName("com.mysql.jdbc.Driver")
+                                val con = DriverManager.getConnection(adres, dane, dane)
+                                val st = con.createStatement()
 
-                    try {
-                        Class.forName("com.mysql.jdbc.Driver")
-                        val con = DriverManager.getConnection(adres, dane, dane)
-                        val st = con.createStatement()
-                        val wyniki = st.executeQuery("select nazwa from skladniki")
-                        while (wyniki.next()) {
-                            dataModel!!.add(DataModel(wyniki.getString(1), false))
+                                println(skladnikInput.text)
+                                val wyniki = if (skladnikInput.text.isEmpty()) {
+                                    st.executeQuery(komenda)
+                                } else {
+                                    komenda = "select nazwa from skladniki where LOCATE('" + skladnikInput.text.toString() + "', nazwa)"
+                                    st.executeQuery(komenda)
+                                }
+                                while (wyniki.next()) {
+                                    dataModel!!.add(DataModel(wyniki.getString(1), false))
+                                }
+                                con.close()
+                            } catch (e: Exception) {
+                                println(e.message)
+                            }
                         }
-                        con.close()
-                    } catch (e: Exception) {
-                        println(e.message)
-                        println("EEEEOOOOO")
+
+                        adapter = CustomAdapter(dataModel!!, applicationContext)
+                        listView.adapter = adapter
+                        listView.onItemClickListener = AdapterView.OnItemClickListener { _, _, position, _ ->
+                            val dataModel: DataModel = dataModel!![position]
+                            dataModel.checked = !dataModel.checked
+                            adapter.notifyDataSetChanged()
+                        }
                     }
+
                 }
-                adapter = CustomAdapter(dataModel!!, applicationContext)
-                listView.adapter = adapter
-                listView.onItemClickListener = AdapterView.OnItemClickListener { _, _, position, _ ->
-                    val dataModel: DataModel = dataModel!![position]
-                    dataModel.checked = !dataModel.checked
-                    adapter.notifyDataSetChanged()
-                }
-            }
+                override fun beforeTextChanged(s:CharSequence, start:Int, count:Int,
+                                               after:Int) {}
+                override fun afterTextChanged(s: Editable) {}
+            })
+
+
+
+
 
     }
 }

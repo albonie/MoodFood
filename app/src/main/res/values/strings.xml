@@ -118,5 +118,7 @@
     <string name="title_activity_ustawienia">Ustawienia</string>
     <string name="Ustawienia">Ustawienia</string>
     <string name="o_aplikacji">O aplikacji</string>
+    <string name="skladnik">Składnik:</string>
+    <string name="zobacz_przepisy">Zobacz Przepisy</string>
 
 </resources>

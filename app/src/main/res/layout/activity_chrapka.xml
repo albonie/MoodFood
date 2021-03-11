@@ -13,4 +13,18 @@
             android:id="@+id/listView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
+    <EditText
+
+            android:layout_marginTop="100dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:ems="10"
+            android:id="@+id/skladnikInput" android:autofillHints="@string/skladnik" tools:ignore="LabelFor"/>
+    <Button
+            android:layout_marginTop="100dp"
+            android:layout_marginStart="220dp"
+            android:text="@string/zobacz_przepisy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/zobaczPrzepisy"/>
 </RelativeLayout>
