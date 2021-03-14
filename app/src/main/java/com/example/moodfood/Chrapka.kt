@@ -1,10 +1,8 @@
 package com.example.moodfood
 
 
-import android.app.Activity
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.service.voice.VoiceInteractionSession
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.View
@@ -12,7 +10,10 @@ import android.widget.AdapterView
 import android.widget.ListView
 import com.example.moodfood.chrapka.CustomAdapter
 import com.example.moodfood.chrapka.DataModel
+import com.example.moodfood.chrapka.SkladnikArray
 import kotlinx.android.synthetic.main.activity_chrapka.*
+import kotlinx.android.synthetic.main.row_item.*
+import kotlinx.android.synthetic.main.row_item.view.*
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.launch
@@ -20,6 +21,7 @@ import kotlinx.coroutines.withContext
 import java.lang.Exception
 import java.sql.DriverManager
 import java.util.*
+import kotlin.collections.ArrayList
 
 class Chrapka : AppCompatActivity() {
     private var dataModel: ArrayList<DataModel>? = null
@@ -29,47 +31,81 @@ class Chrapka : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_chrapka)
 
+        val adres = "jdbc:mysql://10.0.2.2/moodfood?useUnicode=yes&characterEncoding=UTF-8"
+        val dane = "root"
+
+        var komenda = "select nazwa from skladniki"
+
+
+        listView = findViewById<View>(R.id.listView) as ListView
+        dataModel = ArrayList<DataModel>()
+
+
+
+        val tablicaSkladnikow = ArrayList<SkladnikArray>()
+
+        MainScope().launch {
+            withContext(Dispatchers.Default) {
+
+
+                try {
+                    Class.forName("com.mysql.jdbc.Driver")
+                    val con = DriverManager.getConnection(adres, dane, dane)
+                    val st = con.createStatement()
+                    val wyniki = st.executeQuery(komenda)
+                    var i = 0
+                    while (wyniki.next()) {
+
+                        tablicaSkladnikow.add(SkladnikArray(wyniki.getString(1), false))
+
+                        dataModel!!.add(DataModel(wyniki.getString(1), false))
+                        i++;
+                    }
+                    con.close()
+                } catch (e: Exception) {
+                    println(e.message)
+                }
+
+            }
 
             skladnikInput.addTextChangedListener(object: TextWatcher {
                 override fun onTextChanged(s:CharSequence, start:Int, before:Int,
                                            count:Int) {
-                    listView = findViewById<View>(R.id.listView) as ListView
-                    dataModel = ArrayList<DataModel>()
-                    MainScope().launch {
-                        withContext(Dispatchers.Default) {
-                            val adres = "jdbc:mysql://10.0.2.2/moodfood?useUnicode=yes&characterEncoding=UTF-8"
-                            val dane = "root"
 
-                            var komenda = "select nazwa from skladniki"
 
-                            try {
-                                Class.forName("com.mysql.jdbc.Driver")
-                                val con = DriverManager.getConnection(adres, dane, dane)
-                                val st = con.createStatement()
 
-                                println(skladnikInput.text)
-                                val wyniki = if (skladnikInput.text.isEmpty()) {
-                                    st.executeQuery(komenda)
-                                } else {
-                                    komenda = "select nazwa from skladniki where LOCATE('" + skladnikInput.text.toString() + "', nazwa)"
-                                    st.executeQuery(komenda)
-                                }
-                                while (wyniki.next()) {
-                                    dataModel!!.add(DataModel(wyniki.getString(1), false))
-                                }
-                                con.close()
-                            } catch (e: Exception) {
-                                println(e.message)
+                    dataModel!!.clear()
+
+
+                    tablicaSkladnikow.forEach { skladnik ->
+                        if (skladnik.getNazwa().contains(skladnikInput.text.toString())) {
+                            dataModel!!.add(
+                                DataModel(
+                                    skladnik.getNazwa(),
+                                    skladnik.isChecked()
+                                )
+                            )
+                        }
+                    }
+
+
+                    adapter = CustomAdapter(dataModel!!, applicationContext)
+                    listView.adapter = adapter
+                    listView.onItemClickListener = AdapterView.OnItemClickListener { _, _, position, _ ->
+
+                        val dataModel: DataModel = dataModel!![position]
+
+                        dataModel.checked = !dataModel.checked
+
+                        tablicaSkladnikow.forEach { skladnik ->
+                            if (skladnik.getNazwa() == dataModel.name) {
+                                skladnik.checked = !skladnik.checked
                             }
                         }
 
-                        adapter = CustomAdapter(dataModel!!, applicationContext)
-                        listView.adapter = adapter
-                        listView.onItemClickListener = AdapterView.OnItemClickListener { _, _, position, _ ->
-                            val dataModel: DataModel = dataModel!![position]
-                            dataModel.checked = !dataModel.checked
-                            adapter.notifyDataSetChanged()
-                        }
+
+                        adapter.notifyDataSetChanged()
+
                     }
 
                 }
@@ -78,27 +114,17 @@ class Chrapka : AppCompatActivity() {
                 override fun afterTextChanged(s: Editable) {}
             })
 
-
-
-
-
+//            adapter = CustomAdapter(dataModel!!, applicationContext)
+//            listView.adapter = adapter
+//            listView.onItemClickListener = AdapterView.OnItemClickListener { _, _, position, _ ->
+//                val dataModel: DataModel = dataModel!![position]
+//                dataModel.checked = !dataModel.checked
+//
+//
+//
+//                adapter.notifyDataSetChanged()
+//
+//            }
+        }
     }
 }
-
-
-
-
-//         dataModel!!.add(DataModel("Apple Pie", false))
-//        dataModel!!.add(DataModel("Banana Bread", false))
-//        dataModel!!.add(DataModel("Cupcake", false))
-//        dataModel!!.add(DataModel("Donut", true))
-//        dataModel!!.add(DataModel("Eclair", true))
-//        dataModel!!.add(DataModel("Froyo", true))
-//        dataModel!!.add(DataModel("Gingerbread", true))
-//        dataModel!!.add(DataModel("Honeycomb", false))
-//        dataModel!!.add(DataModel("Ice Cream Sandwich", false))
-//        dataModel!!.add(DataModel("Jelly Bean", false))
-//        dataModel!!.add(DataModel("Kitkat", false))
-//        dataModel!!.add(DataModel("Lollipop", false))
-//        dataModel!!.add(DataModel("Marshmallow", false))
-//        dataModel!!.add(DataModel("Nougat", false))
