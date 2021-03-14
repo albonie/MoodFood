@@ -1,6 +1,7 @@
 package com.example.moodfood
 
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
@@ -12,15 +13,12 @@ import com.example.moodfood.chrapka.CustomAdapter
 import com.example.moodfood.chrapka.DataModel
 import com.example.moodfood.chrapka.SkladnikArray
 import kotlinx.android.synthetic.main.activity_chrapka.*
-import kotlinx.android.synthetic.main.row_item.*
-import kotlinx.android.synthetic.main.row_item.view.*
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import java.lang.Exception
 import java.sql.DriverManager
-import java.util.*
 import kotlin.collections.ArrayList
 
 class Chrapka : AppCompatActivity() {
@@ -31,14 +29,15 @@ class Chrapka : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_chrapka)
 
+
+
         val adres = "jdbc:mysql://10.0.2.2/moodfood?useUnicode=yes&characterEncoding=UTF-8"
         val dane = "root"
 
-        var komenda = "select nazwa from skladniki"
 
 
         listView = findViewById<View>(R.id.listView) as ListView
-        dataModel = ArrayList<DataModel>()
+        dataModel = ArrayList()
 
 
 
@@ -52,14 +51,14 @@ class Chrapka : AppCompatActivity() {
                     Class.forName("com.mysql.jdbc.Driver")
                     val con = DriverManager.getConnection(adres, dane, dane)
                     val st = con.createStatement()
-                    val wyniki = st.executeQuery(komenda)
+                    val wyniki = st.executeQuery("select nazwa from skladniki")
                     var i = 0
                     while (wyniki.next()) {
 
                         tablicaSkladnikow.add(SkladnikArray(wyniki.getString(1), false))
 
                         dataModel!!.add(DataModel(wyniki.getString(1), false))
-                        i++;
+                        i++
                     }
                     con.close()
                 } catch (e: Exception) {
@@ -78,11 +77,11 @@ class Chrapka : AppCompatActivity() {
 
 
                     tablicaSkladnikow.forEach { skladnik ->
-                        if (skladnik.getNazwa().contains(skladnikInput.text.toString())) {
+                        if (skladnik.getNazwa()?.contains(skladnikInput.text.toString()) == true) {
                             dataModel!!.add(
                                 DataModel(
                                     skladnik.getNazwa(),
-                                    skladnik.isChecked()
+                                    skladnik.checked
                                 )
                             )
                         }
@@ -114,17 +113,29 @@ class Chrapka : AppCompatActivity() {
                 override fun afterTextChanged(s: Editable) {}
             })
 
-//            adapter = CustomAdapter(dataModel!!, applicationContext)
-//            listView.adapter = adapter
-//            listView.onItemClickListener = AdapterView.OnItemClickListener { _, _, position, _ ->
-//                val dataModel: DataModel = dataModel!![position]
-//                dataModel.checked = !dataModel.checked
-//
-//
-//
-//                adapter.notifyDataSetChanged()
-//
-//            }
+            adapter = CustomAdapter(dataModel!!, applicationContext)
+            listView.adapter = adapter
+            listView.onItemClickListener = AdapterView.OnItemClickListener { _, _, position, _ ->
+                val dataModel: DataModel = dataModel!![position]
+                dataModel.checked = !dataModel.checked
+
+                tablicaSkladnikow.forEach { skladnik ->
+                    if (skladnik.getNazwa() == dataModel.name) {
+                        skladnik.checked = !skladnik.checked
+                    }
+                }
+
+                adapter.notifyDataSetChanged()
+
+            }
         }
+
+        zobaczPrzepisy.setOnClickListener {
+            val intent = Intent(this, ChrapkaWyniki::class.java)
+            intent.putExtra("Skladniki", tablicaSkladnikow)
+            startActivity(intent)
+        }
+
     }
 }
+
