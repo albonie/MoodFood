@@ -29,10 +29,12 @@ class Chrapka : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_chrapka)
 
+        supportActionBar?.hide()
 
 
-        val adres = "jdbc:mysql://10.0.2.2/moodfood?useUnicode=yes&characterEncoding=UTF-8"
-        val dane = "root"
+        val adres = "jdbc:mysql://195.78.66.225/moodfood_test"
+        val user = "moodfood_visor"
+        val pass = "MoodFood69"
 
 
 
@@ -43,13 +45,35 @@ class Chrapka : AppCompatActivity() {
 
         val tablicaSkladnikow = ArrayList<SkladnikArray>()
 
+        fun update() {
+            adapter = CustomAdapter(dataModel!!, applicationContext)
+            listView.adapter = adapter
+            listView.onItemClickListener = AdapterView.OnItemClickListener { _, _, position, _ ->
+
+                val dataModel: DataModel = dataModel!![position]
+
+                dataModel.checked = !dataModel.checked
+
+                tablicaSkladnikow.forEach { skladnik ->
+                    if (skladnik.getNazwa() == dataModel.name) {
+                        skladnik.checked = !skladnik.checked
+                    }
+                }
+
+
+                adapter.notifyDataSetChanged()
+
+            }
+        }
+
+
         MainScope().launch {
             withContext(Dispatchers.Default) {
 
 
                 try {
                     Class.forName("com.mysql.jdbc.Driver")
-                    val con = DriverManager.getConnection(adres, dane, dane)
+                    val con = DriverManager.getConnection(adres, user, pass)
                     val st = con.createStatement()
                     val wyniki = st.executeQuery("select nazwa from skladniki")
                     var i = 0
@@ -65,6 +89,13 @@ class Chrapka : AppCompatActivity() {
                     println(e.message)
                 }
 
+            }
+
+            clear.setOnClickListener {
+                tablicaSkladnikow.forEach { skladnik ->
+                    skladnik.checked = false
+                }
+                skladnikInput.setText("")
             }
 
             skladnikInput.addTextChangedListener(object: TextWatcher {
@@ -88,24 +119,7 @@ class Chrapka : AppCompatActivity() {
                     }
 
 
-                    adapter = CustomAdapter(dataModel!!, applicationContext)
-                    listView.adapter = adapter
-                    listView.onItemClickListener = AdapterView.OnItemClickListener { _, _, position, _ ->
-
-                        val dataModel: DataModel = dataModel!![position]
-
-                        dataModel.checked = !dataModel.checked
-
-                        tablicaSkladnikow.forEach { skladnik ->
-                            if (skladnik.getNazwa() == dataModel.name) {
-                                skladnik.checked = !skladnik.checked
-                            }
-                        }
-
-
-                        adapter.notifyDataSetChanged()
-
-                    }
+                    update()
 
                 }
                 override fun beforeTextChanged(s:CharSequence, start:Int, count:Int,
@@ -113,22 +127,12 @@ class Chrapka : AppCompatActivity() {
                 override fun afterTextChanged(s: Editable) {}
             })
 
-            adapter = CustomAdapter(dataModel!!, applicationContext)
-            listView.adapter = adapter
-            listView.onItemClickListener = AdapterView.OnItemClickListener { _, _, position, _ ->
-                val dataModel: DataModel = dataModel!![position]
-                dataModel.checked = !dataModel.checked
 
-                tablicaSkladnikow.forEach { skladnik ->
-                    if (skladnik.getNazwa() == dataModel.name) {
-                        skladnik.checked = !skladnik.checked
-                    }
-                }
 
-                adapter.notifyDataSetChanged()
-
-            }
+            update()
         }
+
+
 
         zobaczPrzepisy.setOnClickListener {
             val intent = Intent(this, ChrapkaWyniki::class.java)
