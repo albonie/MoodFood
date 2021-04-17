@@ -121,5 +121,8 @@
     <string name="skladnik">Składnik:</string>
     <string name="zobacz_przepisy">Zobacz Przepisy</string>
     <string name="clear">Wyczyść</string>
+    <string name="ikonaprzepisu">ikonaPrzepisu</string>
+    <string name="opis_przepisu">Opis przepisu</string>
+    <string name="tytul">Nazwa przepisu</string>
 
 </resources>
